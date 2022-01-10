@@ -1,18 +1,33 @@
 package main.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
 /**
  * @author David Hildebrandt
  */
+@Entity
 public class Carro {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
 	private Integer capacidade;
 	private Integer combustivel;
-	private boolean ligado;
+	private Boolean ligado;
 	private Integer velocidade;
 	private Integer lugares;
-
+	
+	@ManyToOne
+	private Motorista motorista;
+	
 	public Carro() {
-		this.capacidade = 10;
 	}
 	
 	public Carro(int capacidade) {
@@ -20,6 +35,14 @@ public class Carro {
 		this.ligado = false;
 		this.combustivel = 0;
 		this.velocidade = 0;
+	}
+	
+	public Motorista getMotorista() {
+		return motorista;
+	}
+
+	public void setMotorista(Motorista motorista) {
+		this.motorista = motorista;
 	}
 
 	public int getLugares() {
