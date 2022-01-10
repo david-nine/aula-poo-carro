@@ -15,7 +15,16 @@ public class Motorista {
 	private Long id;
 	private String nome;
 	private LocalDate dataNascimento;
+	private TipoResidencia tipoResidencia;
 	
+	public TipoResidencia getTipoResidencia() {
+		return tipoResidencia;
+	}
+
+	public void setTipoResidencia(TipoResidencia tipoResidencia) {
+		this.tipoResidencia = tipoResidencia;
+	}
+
 	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
@@ -32,9 +41,12 @@ public class Motorista {
 		this.dataNascimento = dataNascimento;
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return "Motorista [nome=" + nome + "]";
+		return "Motorista [id=" + id + ", nome=" + nome + ", dataNascimento=" + dataNascimento + ", tipoResidencia="
+				+ tipoResidencia + "]";
 	}
 
 	public Motorista() {
